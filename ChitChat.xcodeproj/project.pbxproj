@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */; };
-		BB70D2BD279C537800F7DB0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2BC279C537800F7DB0A /* ContentView.swift */; };
+		BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2BC279C537800F7DB0A /* LoginView.swift */; };
 		BB70D2BF279C537A00F7DB0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB70D2BE279C537A00F7DB0A /* Assets.xcassets */; };
 		BB70D2C2279C537A00F7DB0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB70D2C1279C537A00F7DB0A /* Preview Assets.xcassets */; };
 		BB70D2CC279C537B00F7DB0A /* ChitChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2CB279C537B00F7DB0A /* ChitChatTests.swift */; };
 		BB70D2D6279C537B00F7DB0A /* ChitChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2D5279C537B00F7DB0A /* ChitChatUITests.swift */; };
 		BB70D2D8279C537B00F7DB0A /* ChitChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2D7279C537B00F7DB0A /* ChitChatUITestsLaunchTests.swift */; };
+		BB70D2E5279C5BC600F7DB0A /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */; };
+		BB70D2E7279C5C1800F7DB0A /* AnnCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2E6279C5C1800F7DB0A /* AnnCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		BB70D2B7279C537800F7DB0A /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatApp.swift; sourceTree = "<group>"; };
-		BB70D2BC279C537800F7DB0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB70D2BC279C537800F7DB0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BB70D2BE279C537A00F7DB0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB70D2C1279C537A00F7DB0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB70D2C7279C537B00F7DB0A /* ChitChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChitChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,8 @@
 		BB70D2D1279C537B00F7DB0A /* ChitChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChitChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB70D2D5279C537B00F7DB0A /* ChitChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatUITests.swift; sourceTree = "<group>"; };
 		BB70D2D7279C537B00F7DB0A /* ChitChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
+		BB70D2E6279C5C1800F7DB0A /* AnnCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */,
-				BB70D2BC279C537800F7DB0A /* ContentView.swift */,
+				BB70D2BC279C537800F7DB0A /* LoginView.swift */,
 				BB70D2BE279C537A00F7DB0A /* Assets.xcassets */,
+				BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */,
+				BB70D2E6279C5C1800F7DB0A /* AnnCoordinator.swift */,
 				BB70D2C0279C537A00F7DB0A /* Preview Content */,
 			);
 			path = ChitChat;
@@ -257,8 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB70D2BD279C537800F7DB0A /* ContentView.swift in Sources */,
+				BB70D2E7279C5C1800F7DB0A /* AnnCoordinator.swift in Sources */,
+				BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */,
 				BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */,
+				BB70D2E5279C5BC600F7DB0A /* CaptureImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
