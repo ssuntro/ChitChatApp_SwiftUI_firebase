@@ -70,7 +70,6 @@ struct LoginView: View {
     var imagePicker: some View {
         Group {
         Button {
-//            imageButtonDidClick()
             self.showCaptureImageView.toggle()
         } label: {
             VStack {
