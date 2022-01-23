@@ -26,7 +26,8 @@ extension LoginView {
         } label: {
             VStack {
                 if let image = image {
-                    image.resizable()
+                    Image(uiImage: image)
+                        .resizable()
                         .frame(width: 100, height: 100)
 //                        .padding()
                         .clipShape(Circle())
