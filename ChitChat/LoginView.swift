@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+//import FirebaseAuth
 import Firebase
-import FirebaseStorage
-import FirebaseFirestore
+//import FirebaseStorage
+//import FirebaseFirestore
 
 struct LoginView: View {
     @State var isLoginMode = false
@@ -44,9 +44,9 @@ struct LoginView: View {
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     
-    init() {
-        FirebaseApp.configure()
-    }
+//    init() {
+//        FirebaseApp.configure()
+//    }
 }
 extension LoginView {
     func buttonDidClick() {
@@ -58,8 +58,7 @@ extension LoginView {
     }
     
     func loginUser() {
-        FirebaseAuth.Auth
-            .auth()
+        FirebaseManager.shared.auth
             .signIn(withEmail: email, password: password, completion: loginHandler)
     }
     func createNewAccount() {
@@ -67,8 +66,7 @@ extension LoginView {
             loginStatusMessage = "Please select image"
             return
         }
-        FirebaseAuth.Auth
-            .auth()
+        FirebaseManager.shared.auth
             .createUser(withEmail: email, password: password, completion: {result, error in
                 self.loginHandler(result, error)
                 self.saveImage()
@@ -85,10 +83,10 @@ extension LoginView {
 
 //TODO: - CallBack hell needs await to solve
     func saveImage() {
-        guard let uid = FirebaseAuth.Auth.auth().currentUser?.uid,
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid,
                 let imageData = image?.jpegData(compressionQuality: 0.5) else { return }
         
-        let ref = FirebaseStorage.Storage.storage().reference(withPath: uid)
+        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
         ref.putData(imageData, metadata: nil) { _, error in
             if let error = error {
                 loginStatusMessage = "Failed to push image to Storage: \(error)"
@@ -108,11 +106,10 @@ extension LoginView {
     }
     
     func storeUserInformation(imageProfileUrl: URL, _ uid: String) {
-        
         let data = ["email": email,
                     "uid": uid,
                     "profileImageUrl": imageProfileUrl.absoluteString]
-        Firestore.firestore()
+        FirebaseManager.shared.firestore
             .collection("users")
             .document(uid)
             .setData(data) { error in
@@ -127,6 +124,5 @@ extension LoginView {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
-        
     }
 }
