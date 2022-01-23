@@ -21,6 +21,7 @@
 		BB70D2EE279C631400F7DB0A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BB70D2ED279C631400F7DB0A /* FirebaseFirestore */; };
 		BB70D2F0279C631400F7DB0A /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = BB70D2EF279C631400F7DB0A /* FirebaseFirestoreSwift-Beta */; };
 		BB70D2F2279C631400F7DB0A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BB70D2F1279C631400F7DB0A /* FirebaseStorage */; };
+		BB70D2F4279D941800F7DB0A /* LoginView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2F3279D941800F7DB0A /* LoginView+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
 		BB70D2E6279C5C1800F7DB0A /* AnnCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnCoordinator.swift; sourceTree = "<group>"; };
 		BB70D2E8279C61CD00F7DB0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB70D2F3279D941800F7DB0A /* LoginView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */,
 				BB70D2BC279C537800F7DB0A /* LoginView.swift */,
+				BB70D2F3279D941800F7DB0A /* LoginView+UI.swift */,
 				BB70D2BE279C537A00F7DB0A /* Assets.xcassets */,
 				BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */,
 				BB70D2E6279C5C1800F7DB0A /* AnnCoordinator.swift */,
@@ -284,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB70D2F4279D941800F7DB0A /* LoginView+UI.swift in Sources */,
 				BB70D2E7279C5C1800F7DB0A /* AnnCoordinator.swift in Sources */,
 				BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */,
 				BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */,
