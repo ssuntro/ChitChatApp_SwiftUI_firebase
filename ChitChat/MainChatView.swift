@@ -13,19 +13,36 @@ struct MainChatView: View {
         NavigationView {
             VStack {
                 userPanel
-            ScrollView {
-                ForEach(recentMessages) { message in
-                    VStack {
-                        Button {
+                ScrollView {
+                    ForEach(recentMessages) { message in
+                        VStack {
+                            Button {
 
-                        } label: {
-                            Text("entry")
+                            } label: {
+                                Text("entry")
+                            }
                         }
                     }
-                }
-            }
+                }.background(Color.brown)
             }
             .navigationBarHidden(true)
+            .overlay(alignment: .bottom) {
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("+ New Message").font(.system(size: 16, weight: .bold))
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .background(Color.blue)
+                    .cornerRadius(32)
+                    .shadow(radius: 15)
+                }
+
+            }
         }
         
     }
