@@ -25,6 +25,7 @@
 		BB70D2F6279DAA3300F7DB0A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2F5279DAA3300F7DB0A /* FirebaseManager.swift */; };
 		BB70D2F8279DADE600F7DB0A /* MainChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2F7279DADE600F7DB0A /* MainChatView.swift */; };
 		BB70D2FD279DB19100F7DB0A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BB70D2FC279DB19100F7DB0A /* SDWebImageSwiftUI */; };
+		BB70D2FF279F0D4A00F7DB0A /* MainChatView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		BB70D2F3279D941800F7DB0A /* LoginView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+UI.swift"; sourceTree = "<group>"; };
 		BB70D2F5279DAA3300F7DB0A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		BB70D2F7279DADE600F7DB0A /* MainChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatView.swift; sourceTree = "<group>"; };
+		BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainChatView+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				BB70D2BC279C537800F7DB0A /* LoginView.swift */,
 				BB70D2F3279D941800F7DB0A /* LoginView+UI.swift */,
 				BB70D2F7279DADE600F7DB0A /* MainChatView.swift */,
+				BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */,
 				BB70D2BE279C537A00F7DB0A /* Assets.xcassets */,
 				BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */,
 				BB70D2F5279DAA3300F7DB0A /* FirebaseManager.swift */,
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB70D2F6279DAA3300F7DB0A /* FirebaseManager.swift in Sources */,
+				BB70D2FF279F0D4A00F7DB0A /* MainChatView+UI.swift in Sources */,
 				BB70D2F4279D941800F7DB0A /* LoginView+UI.swift in Sources */,
 				BB70D2E7279C5C1800F7DB0A /* AnnCoordinator.swift in Sources */,
 				BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */,
