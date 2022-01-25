@@ -13,18 +13,7 @@ struct MainChatView: View {
         NavigationView {
             VStack {
                 userPanel
-                ScrollView {
-                    ForEach(recentMessages) { message in
-                        VStack {
-                            Button {
-                                cellDidClick()
-                            } label: {
-                                cell
-                            }
-                            Divider().padding(.vertical, 8)
-                        }.padding(.horizontal)
-                    }
-                }.background(Color.brown)
+                tableView
             }
             .navigationBarHidden(true)
             .overlay(alignment: .bottom) { newMessageButton }

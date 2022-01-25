@@ -27,6 +27,22 @@ extension MainChatView {
             .shadow(radius: 15)
         }
     }
+    
+    var tableView: some View {
+        ScrollView {
+            ForEach(recentMessages) { message in
+                VStack {
+                    Button {
+                        cellDidClick()
+                    } label: {
+                        cell
+                    }
+                    Divider().padding(.vertical, 8)
+                }.padding(.horizontal)
+            }
+        }.background(Color.brown)
+    }
+    
     var cell: some View {
         HStack {
             WebImage(url: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/chitchat-40120.appspot.com/o/O1UwxcRv6yeA1sJYDGTM2xyl8pF3?alt=media&token=cb17db7c-ee5d-455e-b586-bb86648f1cb9"))
