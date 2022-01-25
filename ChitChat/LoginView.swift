@@ -25,23 +25,31 @@ struct LoginView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 16) {
-                    pickerView
+//                    pickerView
                     if !isLoginMode {
                         imagePicker
                     }
                     textField
                     loginSignupButton
-                }.padding()
+                    Button {
+                        isLoginMode = !isLoginMode
+                    } label: {
+                        Text(isLoginMode ? "Create account?": "Login?")
+                    }
 
-                Text(self.loginStatusMessage)
-                    .foregroundColor(.teal)
-                if (showCaptureImageView) {
-                  CaptureImageView(isShown: $showCaptureImageView, image: $image)
-                }
+                    Text(self.loginStatusMessage)
+                        .foregroundColor(.teal)
+                    if (showCaptureImageView) {
+                      CaptureImageView(isShown: $showCaptureImageView, image: $image)
+                    }
+                }.padding()
             }
             .navigationTitle(isLoginMode ? "Login": "Signup")
             .background(Color.init(white: 0, opacity: 0.05))
-        }.navigationViewStyle(StackNavigationViewStyle())
+            
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+            
     }
     
 //    init() {

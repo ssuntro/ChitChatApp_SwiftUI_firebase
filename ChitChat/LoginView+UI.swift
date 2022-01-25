@@ -9,15 +9,15 @@ import SwiftUI
 
 //MARK: - UI
 extension LoginView {
-    var pickerView: some View {
-        Picker(selection: $isLoginMode,
-               label: Text("Picker")) {
-            Text("Login")
-                .tag(true)
-            Text("Signup")
-                .tag(false)
-        }.pickerStyle(SegmentedPickerStyle())
-    }
+//    var pickerView: some View {
+//        Picker(selection: $isLoginMode,
+//               label: Text("Picker")) {
+//            Text("Login")
+//                .tag(true)
+//            Text("Signup")
+//                .tag(false)
+//        }.pickerStyle(SegmentedPickerStyle())
+//    }
 
     var imagePicker: some View {
         Group {
