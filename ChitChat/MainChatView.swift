@@ -14,6 +14,12 @@ struct MainChatView: View {
             VStack {
                 userPanel
                 tableView
+                NavigationLink(isActive: $shouldNavigateToChatLogView) {
+                    ChatLogView()
+                } label: {
+                    Text("")
+                }
+
             }
             .overlay(alignment: .bottom) { newMessageButton }
             .navigationBarHidden(true)
@@ -28,8 +34,9 @@ struct MainChatView: View {
     func gearButtonDidClick() {
         
     }
+    @State var shouldNavigateToChatLogView = false
     func cellDidClick() {
-        
+        shouldNavigateToChatLogView.toggle()
     }
 }
 
