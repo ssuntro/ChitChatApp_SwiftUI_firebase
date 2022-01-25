@@ -26,6 +26,9 @@ extension MainChatView {
             .cornerRadius(32)
             .shadow(radius: 15)
         }
+        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
+            CreateNewMessageView()
+        }
     }
     
     var tableView: some View {

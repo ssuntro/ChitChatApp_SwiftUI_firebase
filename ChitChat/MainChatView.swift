@@ -15,13 +15,14 @@ struct MainChatView: View {
                 userPanel
                 tableView
             }
-            .navigationBarHidden(true)
             .overlay(alignment: .bottom) { newMessageButton }
+            .navigationBarHidden(true)
         }.foregroundColor(.secondary)
     }
     
+    @State var shouldShowNewMessageScreen = false
     func newMessageButtonDidClick() {
-        
+        shouldShowNewMessageScreen.toggle()
     }
     
     func gearButtonDidClick() {
