@@ -24,6 +24,7 @@ extension MainChatView {
             .padding(.vertical)
             .background(Color.blue)
             .cornerRadius(32)
+            .padding(.horizontal)
             .shadow(radius: 15)
         }
         .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
