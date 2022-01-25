@@ -89,6 +89,17 @@ extension MainChatView {
                 Image(systemName: "gear")
                     .font(.system(size: 24, weight: .bold))
             }
-        }.padding()
+        }
+        .padding()
+        .actionSheet(isPresented: $shouldShowLogOutOptions) {
+            ActionSheet(title: Text("Settings"),
+                  message: Text("What do you want to do?"),
+                  buttons: [
+                .destructive(Text("Sign Out"), action: {
+                    print("handle sign out")
+                }),
+                    .cancel()
+            ])
+        }
     }
 }

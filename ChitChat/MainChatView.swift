@@ -31,9 +31,11 @@ struct MainChatView: View {
         shouldShowNewMessageScreen.toggle()
     }
     
+    @State var shouldShowLogOutOptions = false
     func gearButtonDidClick() {
-        
+        shouldShowLogOutOptions.toggle()
     }
+    
     @State var shouldNavigateToChatLogView = false
     func cellDidClick() {
         shouldNavigateToChatLogView.toggle()
