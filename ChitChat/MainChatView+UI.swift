@@ -34,37 +34,37 @@ extension MainChatView {
     
     var tableView: some View {
         ScrollView {
-            ForEach(recentMessages) { message in
+            ForEach(vm.recentMessages) { message in
                 VStack {
                     Button {
                         cellDidClick()
                     } label: {
                         cell(message)
-                    }
-                    Divider().padding(.vertical, 8)
-                }.padding(.horizontal)
+                    }.padding([.top, .horizontal])
+                    Divider()//.padding(.vertical, 4)
+                }
             }
         }.background(Color.brown)
     }
     
     func cell(_ message: RecentMessage) -> some View {
         return HStack {
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/chitchat-40120.appspot.com/o/O1UwxcRv6yeA1sJYDGTM2xyl8pF3?alt=media&token=cb17db7c-ee5d-455e-b586-bb86648f1cb9"))
+            WebImage(url: URL(string: message.image))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 70, height: 70)
 //                .cornerRadius(64)
                 .cornerRadius(10)
             VStack {
-                Text("usernameusernameusernameusernameusernameusername")
+                Text(message.email)
                     .font(.system(size: 16, weight: .bold))
                     .multilineTextAlignment(.leading)
-                Text("recentMesrecentMesrecentMesrecentMesrecentMes")
+                Text(message.lastestLog)
                     .font(.system(size: 14))
                     .multilineTextAlignment(.leading)
             }
             Spacer()
-            Text("55 days ago")
+            Text(message.timestamp)
                 .font(.system(size: 14, weight: .semibold))
         }
     }
@@ -96,12 +96,13 @@ extension MainChatView {
         .actionSheet(isPresented: $shouldShowLogOutOptions) {
             ActionSheet(title: Text("Settings"),
                   message: Text("What do you want to do?"),
-                  buttons: [
-                .destructive(Text("Sign Out"), action: {
-                    print("handle sign out")
-                }),
-                    .cancel()
-            ])
+                  buttons: [.destructive(Text("Sign Out"),
+                                         action: { vm.handleSignout() }),
+                            .cancel()])
+        }
+        .fullScreenCover(isPresented: $vm.isCurrentUserLoggedOut,
+                         onDismiss: nil) {
+            LoginView()
         }
     }
 }

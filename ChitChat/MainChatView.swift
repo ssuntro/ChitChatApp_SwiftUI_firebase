@@ -40,6 +40,8 @@ struct MainChatView: View {
     func cellDidClick() {
         shouldNavigateToChatLogView.toggle()
     }
+    
+    @ObservedObject var vm = MainChatViewModel()
 }
 
 struct RecentMessage: Identifiable {

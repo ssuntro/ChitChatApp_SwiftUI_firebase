@@ -28,6 +28,7 @@
 		BB70D2FF279F0D4A00F7DB0A /* MainChatView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */; };
 		BB70D301279F100C00F7DB0A /* CreateNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D300279F100C00F7DB0A /* CreateNewMessageView.swift */; };
 		BB70D303279F18F800F7DB0A /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D302279F18F800F7DB0A /* ChatLogView.swift */; };
+		BB70D30527A0690800F7DB0A /* MainChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D30427A0690700F7DB0A /* MainChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainChatView+UI.swift"; sourceTree = "<group>"; };
 		BB70D300279F100C00F7DB0A /* CreateNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageView.swift; sourceTree = "<group>"; };
 		BB70D302279F18F800F7DB0A /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
+		BB70D30427A0690700F7DB0A /* MainChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				BB70D2FE279F0D4A00F7DB0A /* MainChatView+UI.swift */,
 				BB70D302279F18F800F7DB0A /* ChatLogView.swift */,
 				BB70D300279F100C00F7DB0A /* CreateNewMessageView.swift */,
+				BB70D30427A0690700F7DB0A /* MainChatViewModel.swift */,
 				BB70D2BE279C537A00F7DB0A /* Assets.xcassets */,
 				BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */,
 				BB70D2F5279DAA3300F7DB0A /* FirebaseManager.swift */,
@@ -310,6 +313,7 @@
 				BB70D303279F18F800F7DB0A /* ChatLogView.swift in Sources */,
 				BB70D2FF279F0D4A00F7DB0A /* MainChatView+UI.swift in Sources */,
 				BB70D2F4279D941800F7DB0A /* LoginView+UI.swift in Sources */,
+				BB70D30527A0690800F7DB0A /* MainChatViewModel.swift in Sources */,
 				BB70D2E7279C5C1800F7DB0A /* AnnCoordinator.swift in Sources */,
 				BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */,
 				BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */,
