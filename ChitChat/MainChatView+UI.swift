@@ -39,7 +39,7 @@ extension MainChatView {
                     Button {
                         cellDidClick()
                     } label: {
-                        cell
+                        cell(message)
                     }
                     Divider().padding(.vertical, 8)
                 }.padding(.horizontal)
@@ -47,8 +47,8 @@ extension MainChatView {
         }.background(Color.brown)
     }
     
-    var cell: some View {
-        HStack {
+    func cell(_ message: RecentMessage) -> some View {
+        return HStack {
             WebImage(url: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/chitchat-40120.appspot.com/o/O1UwxcRv6yeA1sJYDGTM2xyl8pF3?alt=media&token=cb17db7c-ee5d-455e-b586-bb86648f1cb9"))
                 .resizable()
                 .scaledToFill()
