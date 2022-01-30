@@ -22,3 +22,7 @@ class MainChatViewModel: ObservableObject {
         print("handle sign out")
     }
 }
+struct User: Codable, Identifiable {
+    @DocumentID var id: String?
+    let uid, profileImageUrl, email: String
+}

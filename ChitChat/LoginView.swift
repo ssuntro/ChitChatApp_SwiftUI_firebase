@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-//import FirebaseAuth
+//import FirebaseFirestore
 import Firebase
+import FirebaseFirestoreSwift
 //import FirebaseStorage
 //import FirebaseFirestore
 
@@ -114,19 +115,20 @@ extension LoginView {
     }
     
     func storeUserInformation(imageProfileUrl: URL, _ uid: String) {
-        let data = ["email": email,
-                    "uid": uid,
-                    "profileImageUrl": imageProfileUrl.absoluteString]
-        FirebaseManager.shared.firestore
-            .collection("users")
-            .document(uid)
-            .setData(data) { error in
-                if let error = error {
-                    loginStatusMessage = "Failed to storeUserInformation: \(error)"
-                    return
-                }
-                loginStatusMessage = "Successfully storeUserInformation"
-            }
+        
+        let data = User(uid: uid,
+                        profileImageUrl: imageProfileUrl.absoluteString,
+                        email: email)
+        
+        do {
+            try FirebaseManager.shared.firestore
+                .collection("users")
+                .document(uid)
+                .setData(from: data)
+            loginStatusMessage = "Successfully storeUserInformation"
+          } catch {
+              loginStatusMessage = "Failed to storeUserInformation: \(error)"
+          }
     }
 }
 struct LoginView_Previews: PreviewProvider {
