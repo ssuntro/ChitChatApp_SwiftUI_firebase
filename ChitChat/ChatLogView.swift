@@ -41,13 +41,17 @@ struct ChatLogView: View {
                                content: {
                     HStack(spacing: 16) {
                         HStack {
-                            Spacer()
-                            Text("ddddddd")
+                            TextEditor(text: $vm.chatText)
                                 .frame(height: 40)
-                                .foregroundColor(Color.white)
+                            
+                            Button {
+                                print("SEND did click")
+                            } label: {
+                                Text("SEND").foregroundColor(Color.white)
+                            }
                             Spacer()
+
                         }
-    //                    TextEditor(text: $vm.chatText)
                     }.background(Color.secondary.ignoresSafeArea())
                 })
             }
