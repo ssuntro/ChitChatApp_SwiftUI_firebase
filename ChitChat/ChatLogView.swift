@@ -67,12 +67,26 @@ struct ChatLogView: View {
                     .padding()
                     .background(Color.secondary)
                     .cornerRadius(8)
+                    .contextMenu {
+                        Button(action: {
+                            UIPasteboard.general.string = log.text
+                        }) {
+                            Text("Copy")
+                            }
+                        }
             } else {
                 Text(log.text)
                     .foregroundColor(.black)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(8)
+                    .contextMenu {
+                        Button(action: {
+                            UIPasteboard.general.string = log.text
+                        }) {
+                            Text("Copy")
+                            }
+                        }
                 Spacer()
             }
         }.padding()
