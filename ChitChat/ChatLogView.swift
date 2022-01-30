@@ -10,15 +10,61 @@ import SwiftUI
 struct ChatLogView: View {
     let recipientEmail: String
     var body: some View {
-        Text("ChatLogView")
-            .navigationTitle(Text(recipientEmail))
+        VStack {
+            Text(vm.errorMessage)
+            if let uid = FirebaseManager.shared.auth.currentUser?.uid {
+                ScrollView {
+                    ForEach(vm.logs) { log in
+                        if log.fromId == uid {
+                            HStack {
+                                Spacer()
+                                Text(log.text)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.secondary)
+                                    .cornerRadius(8)
+                            }.padding()
+                        } else {
+                            HStack {
+                                Text(log.text)
+                                    .foregroundColor(.black)
+                                    .padding()
+                                    .background(Color.white)
+                                    .cornerRadius(8)
+                                Spacer()
+                            }.padding()
+                        }
+                    }
+                }
+                .background(Color.brown)
+                .safeAreaInset(edge: .bottom,
+                               content: {
+                    HStack(spacing: 16) {
+                        HStack {
+                            Spacer()
+                            Text("ddddddd")
+                                .frame(height: 40)
+                                .foregroundColor(Color.white)
+                            Spacer()
+                        }
+    //                    TextEditor(text: $vm.chatText)
+                    }.background(Color.secondary.ignoresSafeArea())
+                })
+            }
+            
+        }
+
+        .navigationTitle(Text(recipientEmail))
+        .navigationBarTitleDisplayMode(.inline)
     }
+    
+    @ObservedObject var vm = ChatLogViewModel()
 }
 
 struct ChatLogView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChatLogView(recipientEmail: "asbcds")
+            ChatLogView(recipientEmail: "asb@cds")
         }
         
     }

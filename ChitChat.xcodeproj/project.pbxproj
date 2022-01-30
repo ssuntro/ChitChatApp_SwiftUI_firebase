@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB1E929F27A6457B006DAAFB /* CreateNewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E929E27A6457B006DAAFB /* CreateNewMessageViewModel.swift */; };
 		BB1E92A127A64FDA006DAAFB /* CreateNewMessageView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E92A027A64FDA006DAAFB /* CreateNewMessageView+UI.swift */; };
+		BB1E92A327A66829006DAAFB /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E92A227A66829006DAAFB /* ChatLogViewModel.swift */; };
 		BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */; };
 		BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70D2BC279C537800F7DB0A /* LoginView.swift */; };
 		BB70D2BF279C537A00F7DB0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB70D2BE279C537A00F7DB0A /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		BB1E929E27A6457B006DAAFB /* CreateNewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageViewModel.swift; sourceTree = "<group>"; };
 		BB1E92A027A64FDA006DAAFB /* CreateNewMessageView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateNewMessageView+UI.swift"; sourceTree = "<group>"; };
+		BB1E92A227A66829006DAAFB /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
 		BB70D2B7279C537800F7DB0A /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB70D2BA279C537800F7DB0A /* ChitChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatApp.swift; sourceTree = "<group>"; };
 		BB70D2BC279C537800F7DB0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				BB70D302279F18F800F7DB0A /* ChatLogView.swift */,
 				BB1E92A027A64FDA006DAAFB /* CreateNewMessageView+UI.swift */,
 				BB70D300279F100C00F7DB0A /* CreateNewMessageView.swift */,
+				BB1E92A227A66829006DAAFB /* ChatLogViewModel.swift */,
 				BB70D30427A0690700F7DB0A /* MainChatViewModel.swift */,
 				BB70D2BE279C537A00F7DB0A /* Assets.xcassets */,
 				BB70D2E4279C5BC600F7DB0A /* CaptureImageView.swift */,
@@ -326,6 +329,7 @@
 				BB70D2BD279C537800F7DB0A /* LoginView.swift in Sources */,
 				BB70D2BB279C537800F7DB0A /* ChitChatApp.swift in Sources */,
 				BB70D301279F100C00F7DB0A /* CreateNewMessageView.swift in Sources */,
+				BB1E92A327A66829006DAAFB /* ChatLogViewModel.swift in Sources */,
 				BB70D2F8279DADE600F7DB0A /* MainChatView.swift in Sources */,
 				BB70D2E5279C5BC600F7DB0A /* CaptureImageView.swift in Sources */,
 			);
