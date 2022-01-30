@@ -92,12 +92,10 @@ class ChatLogViewModel: ObservableObject {
                     }
                 }
         }
-        
     }
-    
-    struct Log: Codable, Identifiable {
-        @DocumentID var id: String?
-        let fromId, toId, text: String
-        let timestamp: Date
-    }
+}
+struct Log: Codable, Identifiable {
+    @DocumentID var id: String?
+    let fromId, toId, text: String
+    let timestamp: Date
 }

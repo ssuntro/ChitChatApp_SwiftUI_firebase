@@ -26,8 +26,8 @@ class MainChatViewModel: ObservableObject {
     
     func fetchAllData() {
         fetchHost()
-        recentMessages = [RecentMessage(email: "z@z.com", message: "tmp ja", friendUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1")]/*,
-                          RecentMessage(email: "two@a.com", message: "two ja"),
+        recentMessages = [//RecentMessage(email: "z@z.com", message: "tmp ja", friendUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1")],
+                        RecentMessage(email: "b@b.com", message: "two ja", friendUid: "5G5qNpugF4Yfko8bR2wlk4s3n7n2")] /*,
                           RecentMessage(email: "three@a.com", message: "three ja"),
                           RecentMessage(email: "four@a.com", message: "four ja")]*/
     }
