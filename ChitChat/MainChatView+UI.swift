@@ -59,7 +59,7 @@ extension MainChatView {
                 Text(message.email)
                     .font(.system(size: 16, weight: .bold))
                     .multilineTextAlignment(.leading)
-                Text(message.lastestLog)
+                Text(message.message)
                     .font(.system(size: 14))
                     .multilineTextAlignment(.leading)
             }
@@ -71,7 +71,7 @@ extension MainChatView {
     
     var userPanel: some View {
         HStack(spacing: 16) {
-            WebImage(url: URL(string: "https://firebasestorage.googleapis.com:443/v0/b/chitchat-40120.appspot.com/o/O1UwxcRv6yeA1sJYDGTM2xyl8pF3?alt=media&token=cb17db7c-ee5d-455e-b586-bb86648f1cb9"))
+            WebImage(url: URL(string: vm.host?.profileImageUrl ?? ""))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 50, height: 50)
@@ -82,7 +82,7 @@ extension MainChatView {
                             .stroke(Color(.label), lineWidth: 1)
                 )
                 .shadow(radius: 5)
-            Text("a@a.com")
+            Text(vm.host?.email ?? "")
                 .font(.system(size: 24, weight: .bold))
             Spacer()
             Button {
