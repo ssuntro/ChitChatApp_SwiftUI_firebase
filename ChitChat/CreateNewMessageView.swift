@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CreateNewMessageView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -13,11 +14,13 @@ struct CreateNewMessageView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            VStack {
                 Text(vm.errorMessage)
-                ForEach(vm.users) {user in
-                    Text(user.email)
-                }
+                ScrollView {
+                    ForEach(vm.users) {user in
+                        cell(user)
+                    }
+                }.background(Color.brown)
             }
             .navigationTitle("New Message")
             .toolbar {
@@ -30,7 +33,7 @@ struct CreateNewMessageView: View {
                 }
             }
             
-        }
+        }.foregroundColor(.secondary)
         
     }
 }
