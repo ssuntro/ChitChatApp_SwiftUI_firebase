@@ -22,13 +22,17 @@ class ChatLogViewModel: ObservableObject {
     }
     
     init(_ recipientEmail: String, _ recipientUid: String) {
-
-        self.recipientEmail = recipientEmail
-        self.recipientUid = recipientUid
 //        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
 //        logs = [Log(fromId: uid, toId: "cccc", text: "111111"),
 //                Log(fromId: uid, toId: "cccc", text: " 2222222222"),
 //                Log(fromId: "cccc", toId: uid, text: "33333")]
+        self.recipientEmail = recipientEmail
+        self.recipientUid = recipientUid
+        fetchLog()
+    }
+    
+    func fetchLog() {
+        
     }
     
     func sendButtonDidClick() {

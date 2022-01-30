@@ -19,8 +19,11 @@ struct MainChatView: View {
                 if let activeFriendEmail = vm.activeFriendEmail,
                    let activeFriendUid = vm.activeFriendUid {
                     NavigationLink(isActive: $vm.shouldNavigateToChatLogView) {
-                        ChatLogView(recipientEmail: activeFriendEmail,
-                                    recipientUid: activeFriendUid)
+                        if vm.shouldNavigateToChatLogView {
+                            ChatLogView(recipientEmail: activeFriendEmail,
+                                        recipientUid: activeFriendUid)
+                        }
+                        
                     } label: {
                         Text("")
                     }
@@ -29,7 +32,10 @@ struct MainChatView: View {
             }
             .overlay(alignment: .bottom) { newMessageButton }
             .navigationBarHidden(true)
-        }.foregroundColor(.secondary)
+        }
+        .foregroundColor(.secondary)
+        .navigationViewStyle(StackNavigationViewStyle())
+        
     }
     
 //TODO: - migrate to VM
