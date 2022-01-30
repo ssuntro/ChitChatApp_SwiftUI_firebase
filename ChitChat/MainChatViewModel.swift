@@ -40,6 +40,8 @@ class MainChatViewModel: ObservableObject {
                     self?.host = try? snapshot?.data(as: User.self)
                     self?.errorMessage = "Success to fetch current user"
                 }
+        } else {
+            isCurrentUserLoggedOut.toggle()
         }
     }
     func handleSignout() {
