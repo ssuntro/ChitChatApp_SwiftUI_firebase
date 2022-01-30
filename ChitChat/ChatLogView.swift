@@ -17,9 +17,19 @@ struct ChatLogView: View {
             Text(vm.errorMessage)
             if let uid = FirebaseManager.shared.auth.currentUser?.uid {
                 ScrollView {
-                    ForEach(vm.logs) { log in
-                        cell(hostUid: uid, log)
+                    ScrollViewReader { scrollViewProxy in
+                        ForEach(vm.logs) { log in
+                            cell(hostUid: uid, log)
+                        }
+                        HStack { Spacer() }
+                        .id("dummyView")
+                        .onReceive(vm.$count) { _ in
+                            withAnimation(.easeOut(duration: 0.5)) {
+                                scrollViewProxy.scrollTo("dummyView", anchor: .bottom)
+                            }
+                        }
                     }
+                    
                 }
                 .background(Color.brown)
                 .safeAreaInset(edge: .bottom,

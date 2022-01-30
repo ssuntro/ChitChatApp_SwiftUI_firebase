@@ -13,6 +13,7 @@ class ChatLogViewModel: ObservableObject {
     @Published var errorMessage = "errorMessage"
     @Published var logs = [Log]()
     @Published var chatText = ""
+    @Published var count = 0
     
     let recipientEmail: String
     let recipientUid: String
@@ -53,6 +54,9 @@ class ChatLogViewModel: ObservableObject {
                                 self?.logs.append(log)
                             }
                         })
+                    DispatchQueue.main.async {
+                        self?.count += 1
+                    }
                 }
         }
     }
@@ -74,7 +78,7 @@ class ChatLogViewModel: ObservableObject {
                         return
                     }
                     
-                    self?.errorMessage = ""
+                    self?.errorMessage = "no error"
                     self?.chatText = ""
                     
                 }
