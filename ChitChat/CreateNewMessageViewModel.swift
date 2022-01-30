@@ -14,6 +14,10 @@ class CreateNewMessageViewModel: ObservableObject {
     @Published var errorMessage = ""
     @Published var users = [User]()
     
+    deinit {
+        print("CreateNewMessageViewModel deinit")
+    }
+    
     init() {
         FirebaseManager.shared.firestore
             .collection("users")

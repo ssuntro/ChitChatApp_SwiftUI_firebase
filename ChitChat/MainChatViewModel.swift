@@ -14,6 +14,12 @@ class MainChatViewModel: ObservableObject {
     @Published var recentMessages = [RecentMessage]()
     @Published var host: User?
     @Published var errorMessage = "No error ja"
+    
+    
+    deinit {
+        print("MainChatViewModel deinit")
+    }
+    
     init() {
         fetchAllData()
     }
