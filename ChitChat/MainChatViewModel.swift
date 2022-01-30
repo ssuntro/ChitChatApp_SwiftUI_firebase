@@ -44,10 +44,23 @@ class MainChatViewModel: ObservableObject {
             isCurrentUserLoggedOut.toggle()
         }
     }
+    
     func handleSignout() {
         try? FirebaseManager.shared.auth.signOut()
         isCurrentUserLoggedOut.toggle()
         print("handle sign out")
+    }
+    
+    func didSelectSearchFriends(_ friend: User) {
+        shouldNavigateToChatLogView.toggle()
+        activeFriendEmail = friend.email
+    }
+    
+    @Published var shouldNavigateToChatLogView = false
+    @Published var activeFriendEmail: String?
+    func cellDidClick(_ recentMessage: RecentMessage) {
+        shouldNavigateToChatLogView.toggle()
+        activeFriendEmail = recentMessage.email
     }
 }
 struct User: Codable, Identifiable {

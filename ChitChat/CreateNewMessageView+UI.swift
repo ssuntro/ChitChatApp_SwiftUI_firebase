@@ -12,7 +12,8 @@ import SDWebImageSwiftUI
 extension CreateNewMessageView {
     func cell(_ user: User) -> some View {
         Button {
-            print("cell did click")
+            onSelectFriend(user)
+            presentationMode.wrappedValue.dismiss()
         } label: {
             VStack {
                 HStack {

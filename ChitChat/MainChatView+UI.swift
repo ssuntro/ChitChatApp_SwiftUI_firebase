@@ -28,7 +28,8 @@ extension MainChatView {
             .shadow(radius: 15)
         }
         .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
-            CreateNewMessageView()
+            CreateNewMessageView(onSelectFriend: { friend in
+                vm.didSelectSearchFriends(friend) })
         }
     }
     
@@ -37,7 +38,7 @@ extension MainChatView {
             ForEach(vm.recentMessages) { message in
                 VStack {
                     Button {
-                        cellDidClick()
+                        vm.cellDidClick(message)
                     } label: {
                         cell(message)
                     }.padding([.top, .horizontal])

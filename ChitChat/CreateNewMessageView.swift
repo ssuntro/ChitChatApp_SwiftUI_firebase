@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct CreateNewMessageView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var vm = CreateNewMessageViewModel()
+    let onSelectFriend: (User) -> ()
     
     var body: some View {
         NavigationView {
@@ -40,6 +41,6 @@ struct CreateNewMessageView: View {
 
 struct CreateNewMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateNewMessageView()
+        CreateNewMessageView(onSelectFriend: { _ in })
     }
 }

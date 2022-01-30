@@ -15,10 +15,13 @@ struct MainChatView: View {
                 userPanel
                 Text(vm.errorMessage)
                 tableView
-                NavigationLink(isActive: $shouldNavigateToChatLogView) {
-                    ChatLogView()
-                } label: {
-                    Text("")
+                
+                if let activeFriendEmail = vm.activeFriendEmail {
+                    NavigationLink(isActive: $vm.shouldNavigateToChatLogView) {
+                        ChatLogView(recipientEmail: activeFriendEmail)
+                    } label: {
+                        Text("")
+                    }
                 }
 
             }
@@ -37,12 +40,6 @@ struct MainChatView: View {
     @State var shouldShowLogOutOptions = false
     func gearButtonDidClick() {
         shouldShowLogOutOptions.toggle()
-    }
-    
-//TODO: - migrate to VM
-    @State var shouldNavigateToChatLogView = false
-    func cellDidClick() {
-        shouldNavigateToChatLogView.toggle()
     }
     
     @ObservedObject var vm = MainChatViewModel()
