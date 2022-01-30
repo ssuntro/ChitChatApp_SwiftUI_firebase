@@ -16,6 +16,7 @@ class ChatLogViewModel: ObservableObject {
     
     let recipientEmail: String
     let recipientUid: String
+    var firestoreListener: ListenerRegistration?
     
     deinit {
         print("ChatLogViewModel deinit")
@@ -32,7 +33,28 @@ class ChatLogViewModel: ObservableObject {
     }
     
     func fetchLog() {
-        
+        if let fromId = FirebaseManager.shared.auth.currentUser?.uid {
+            firestoreListener?.remove()
+            firestoreListener = FirebaseManager.shared.firestore
+                .collection("messages")
+                .document(fromId)
+                .collection(recipientUid)
+                .order(by: "timestamp")
+                .addSnapshotListener { [weak self] snapshot, error in
+                    if let error = error {
+                        self?.errorMessage = "Failed to retrieve message into host Firestore: \(error)"
+                        return
+                    }
+                    
+                    snapshot?.documentChanges
+                        .forEach({ change in
+                            if change.type == .added,
+                               let log = try? change.document.data(as: Log.self) {
+                                self?.logs.append(log)
+                            }
+                        })
+                }
+        }
     }
     
     func sendButtonDidClick() {
