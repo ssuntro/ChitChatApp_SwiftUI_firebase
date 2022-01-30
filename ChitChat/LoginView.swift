@@ -13,6 +13,8 @@ import FirebaseFirestoreSwift
 //import FirebaseFirestore
 
 struct LoginView: View {
+    let didSuccessLogin: (() -> ())
+    
     @State var isLoginMode = false
     
     @State var image: UIImage? = nil
@@ -87,7 +89,12 @@ extension LoginView {
             loginStatusMessage = "Failed to login user: \(error)"
             return
         }
-        loginStatusMessage = "Successfully logged in as user: \(result?.user.uid ?? "")"
+        onLoginSuccess()
+    }
+    
+    func onLoginSuccess() {
+        loginStatusMessage = "Successfully logged in as user: \(FirebaseManager.shared.auth.currentUser?.uid ?? "")"
+        didSuccessLogin()
     }
 
 //TODO: - CallBack hell needs await to solve
@@ -125,7 +132,8 @@ extension LoginView {
                 .collection("users")
                 .document(uid)
                 .setData(from: data)
-            loginStatusMessage = "Successfully storeUserInformation"
+            
+            onLoginSuccess()
           } catch {
               loginStatusMessage = "Failed to storeUserInformation: \(error)"
           }
@@ -133,6 +141,6 @@ extension LoginView {
 }
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView {}
     }
 }

@@ -102,7 +102,10 @@ extension MainChatView {
         }
         .fullScreenCover(isPresented: $vm.isCurrentUserLoggedOut,
                          onDismiss: nil) {
-            LoginView()
+            LoginView(didSuccessLogin: {
+                vm.isCurrentUserLoggedOut = false
+                vm.fetchAllData()
+            })
         }
     }
 }

@@ -19,11 +19,11 @@ class MainChatViewModel: ObservableObject {
     }
     
     func fetchAllData() {
+        fetchHost()
         recentMessages = [RecentMessage(email: "one@a.com", message: "one ja"),
                           RecentMessage(email: "two@a.com", message: "two ja"),
                           RecentMessage(email: "three@a.com", message: "three ja"),
                           RecentMessage(email: "four@a.com", message: "four ja")]
-        fetchHost()
     }
     
     func fetchHost() {
