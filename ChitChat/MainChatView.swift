@@ -16,9 +16,11 @@ struct MainChatView: View {
                 Text(vm.errorMessage)
                 tableView
                 
-                if let activeFriendEmail = vm.activeFriendEmail {
+                if let activeFriendEmail = vm.activeFriendEmail,
+                   let activeFriendUid = vm.activeFriendUid {
                     NavigationLink(isActive: $vm.shouldNavigateToChatLogView) {
-                        ChatLogView(recipientEmail: activeFriendEmail)
+                        ChatLogView(recipientEmail: activeFriendEmail,
+                                    recipientUid: activeFriendUid)
                     } label: {
                         Text("")
                     }
@@ -54,6 +56,7 @@ struct RecentMessage: Identifiable {
     let email: String
     let message: String
     let timestamp = "6 Days ago"
+    let friendUid: String
 }
 
 

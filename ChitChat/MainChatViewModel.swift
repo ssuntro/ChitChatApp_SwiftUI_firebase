@@ -26,10 +26,10 @@ class MainChatViewModel: ObservableObject {
     
     func fetchAllData() {
         fetchHost()
-        recentMessages = [RecentMessage(email: "one@a.com", message: "one ja"),
+        recentMessages = [RecentMessage(email: "z@z.com", message: "tmp ja", friendUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1")]/*,
                           RecentMessage(email: "two@a.com", message: "two ja"),
                           RecentMessage(email: "three@a.com", message: "three ja"),
-                          RecentMessage(email: "four@a.com", message: "four ja")]
+                          RecentMessage(email: "four@a.com", message: "four ja")]*/
     }
     
     func fetchHost() {
@@ -60,13 +60,17 @@ class MainChatViewModel: ObservableObject {
     func didSelectSearchFriends(_ friend: User) {
         shouldNavigateToChatLogView.toggle()
         activeFriendEmail = friend.email
+        activeFriendUid = friend.uid
     }
     
     @Published var shouldNavigateToChatLogView = false
     @Published var activeFriendEmail: String?
+    @Published var activeFriendUid: String?
+    
     func cellDidClick(_ recentMessage: RecentMessage) {
         shouldNavigateToChatLogView.toggle()
         activeFriendEmail = recentMessage.email
+        activeFriendUid = recentMessage.friendUid
     }
 }
 struct User: Codable, Identifiable {

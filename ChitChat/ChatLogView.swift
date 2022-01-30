@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ChatLogView: View {
-    let recipientEmail: String
+    init(recipientEmail: String, recipientUid: String) {
+        vm = ChatLogViewModel(recipientEmail, recipientUid)
+    }
     var body: some View {
         VStack {
             Text(vm.errorMessage)
@@ -43,9 +45,8 @@ struct ChatLogView: View {
                         HStack {
                             TextEditor(text: $vm.chatText)
                                 .frame(height: 40)
-                            
                             Button {
-                                print("SEND did click")
+                                vm.sendButtonDidClick()
                             } label: {
                                 Text("SEND").foregroundColor(Color.white)
                             }
@@ -58,17 +59,18 @@ struct ChatLogView: View {
             
         }
 
-        .navigationTitle(Text(recipientEmail))
+        .navigationTitle(Text(vm.recipientEmail))
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    @ObservedObject var vm = ChatLogViewModel()
+    @ObservedObject var vm: ChatLogViewModel
 }
 
 struct ChatLogView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChatLogView(recipientEmail: "asb@cds")
+            ChatLogView(recipientEmail: "z@z.com",
+                        recipientUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1")
         }
         
     }
