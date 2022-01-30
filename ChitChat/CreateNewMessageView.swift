@@ -9,10 +9,16 @@ import SwiftUI
 
 struct CreateNewMessageView: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var vm = CreateNewMessageViewModel()
     
     var body: some View {
         NavigationView {
-            Text("Hello, World!")
+            ScrollView {
+                Text(vm.errorMessage)
+                ForEach(vm.users) {user in
+                    Text(user.email)
+                }
+            }
             .navigationTitle("New Message")
             .toolbar {
                 ToolbarItemGroup(placement: .navigation) {
