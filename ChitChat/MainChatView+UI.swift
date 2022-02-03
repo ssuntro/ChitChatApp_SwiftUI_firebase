@@ -35,7 +35,7 @@ extension MainChatView {
     
     var tableView: some View {
         ScrollView {
-            ForEach(vm.recentMessages) { message in
+            ForEach(isOrderByRecentMessage ? vm.recentMessages: vm.recentMessages.sorted { $0.email < $1.email }) { message in
                 VStack {
                     Button {
                         vm.cellDidClick(message)

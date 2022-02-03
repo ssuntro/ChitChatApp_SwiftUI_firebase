@@ -9,11 +9,22 @@ import SwiftUI
 
 
 struct MainChatView: View {
+    @State var isOrderByRecentMessage = true
     var body: some View {
         NavigationView {
             VStack {
                 userPanel
                 Text(vm.errorMessage)
+                HStack {
+                    Spacer()
+                    Picker(selection: $isOrderByRecentMessage, label: Text("Picker here")) {
+                        Text("Recent message")
+                            .tag(true)
+                        Text("name")
+                            .tag(false)
+                    }.pickerStyle(SegmentedPickerStyle())
+                    Spacer()
+                }
                 tableView
                 
                 if let activeFriendEmail = vm.activeFriendEmail,
