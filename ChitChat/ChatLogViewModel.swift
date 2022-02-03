@@ -17,19 +17,23 @@ class ChatLogViewModel: ObservableObject {
     
     let recipientEmail: String
     let recipientUid: String
+    let recipientImageUrl: String
     var firestoreListener: ListenerRegistration?
     
     deinit {
         print("ChatLogViewModel deinit")
     }
     
-    init(_ recipientEmail: String, _ recipientUid: String) {
+    init(_ recipientEmail: String,
+         _ recipientUid: String,
+         _ recipientImageUrl: String) {
 //        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
 //        logs = [Log(fromId: uid, toId: "cccc", text: "111111"),
 //                Log(fromId: uid, toId: "cccc", text: " 2222222222"),
 //                Log(fromId: "cccc", toId: uid, text: "33333")]
         self.recipientEmail = recipientEmail
         self.recipientUid = recipientUid
+        self.recipientImageUrl = recipientImageUrl
         fetchLog()
     }
     
@@ -62,6 +66,33 @@ class ChatLogViewModel: ObservableObject {
     }
     
     func sendButtonDidClick() {
+        persistChatLog()
+        updateRecentMessage()
+    }
+    
+    func updateRecentMessage() {
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        [FirebaseManager.shared.firestore
+            .collection("recentMessages")
+            .document(fromId)
+            .collection("messages")
+            .document(recipientUid),
+        FirebaseManager.shared.firestore
+            .collection("recentMessages")
+            .document(recipientUid)
+            .collection("messages")
+            .document(fromId)].forEach { document in
+            document.setData(["imageUrl": recipientImageUrl,
+                              "email": recipientEmail,
+                              "message": chatText,
+                              "timestamp": Timestamp(),
+                              "uid": recipientUid]) { [weak self] err in
+                self?.errorMessage = err?.localizedDescription ?? "no error"
+            }
+        }
+    }
+    
+    func persistChatLog() {
         if let fromId = FirebaseManager.shared.auth.currentUser?.uid {
             let messsage = Log(fromId: fromId,
                                toId: recipientUid,

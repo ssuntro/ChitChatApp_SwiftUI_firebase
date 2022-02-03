@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ChatLogView: View {
-    init(recipientEmail: String, recipientUid: String) {
-        vm = ChatLogViewModel(recipientEmail, recipientUid)
+    init(recipientEmail: String,
+         recipientUid: String,
+         recipientImageUrl: String) {
+        vm = ChatLogViewModel(recipientEmail, recipientUid, recipientImageUrl)
     }
     
     var body: some View {
@@ -97,7 +99,8 @@ struct ChatLogView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ChatLogView(recipientEmail: "z@z.com",
-                        recipientUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1")
+                        recipientUid: "jvGKf8PeXqgG7XnPfWSGaHkU9zn1",
+                        recipientImageUrl: "")
         }
         
     }

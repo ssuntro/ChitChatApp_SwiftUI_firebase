@@ -28,11 +28,13 @@ struct MainChatView: View {
                 tableView
                 
                 if let activeFriendEmail = vm.activeFriendEmail,
-                   let activeFriendUid = vm.activeFriendUid {
+                   let activeFriendUid = vm.activeFriendUid,
+                   let activeFriendImageUrl = vm.activeFriendImageUrl {
                     NavigationLink(isActive: $vm.shouldNavigateToChatLogView) {
                         if vm.shouldNavigateToChatLogView {
                             ChatLogView(recipientEmail: activeFriendEmail,
-                                        recipientUid: activeFriendUid)
+                                        recipientUid: activeFriendUid,
+                                        recipientImageUrl: activeFriendImageUrl)
                         }
                         
                     } label: {
@@ -69,11 +71,11 @@ struct RecentMessage: Identifiable {
         return email
     }
     
-    let image = "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=67773a9d419786091c958b2ad08eae5e"
+    let imageUrl = "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=67773a9d419786091c958b2ad08eae5e"
     let email: String
     let message: String
     let timestamp = "6 Days ago"
-    let friendUid: String
+    let uid: String
 }
 
 

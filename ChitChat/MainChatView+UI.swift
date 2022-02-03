@@ -50,7 +50,7 @@ extension MainChatView {
     
     func cell(_ message: RecentMessage) -> some View {
         return HStack {
-            WebImage(url: URL(string: message.image))
+            WebImage(url: URL(string: message.imageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 70, height: 70)
