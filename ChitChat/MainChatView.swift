@@ -75,6 +75,12 @@ struct RecentMessage: Codable, Identifiable {
     let message: String
     let timestamp: Date// = "6 Days ago"
     let uid: String
+    
+    var timeAgo: String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: timestamp, relativeTo: Date())
+    }
 }
 
 

@@ -65,7 +65,7 @@ extension MainChatView {
                     .multilineTextAlignment(.leading)
             }
             Spacer()
-            Text(message.timestamp)
+            Text(message.timeAgo)
                 .font(.system(size: 14, weight: .semibold))
         }
     }
