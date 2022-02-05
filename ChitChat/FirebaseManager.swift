@@ -16,8 +16,9 @@ struct FirebaseManager {
     let auth: Auth
     let storage: Storage
     let firestore: Firestore
+    var host: User?
     
-    static let shared = FirebaseManager()
+    static var shared = FirebaseManager()
     private init() {
         FirebaseApp.configure()
         auth = Auth.auth()

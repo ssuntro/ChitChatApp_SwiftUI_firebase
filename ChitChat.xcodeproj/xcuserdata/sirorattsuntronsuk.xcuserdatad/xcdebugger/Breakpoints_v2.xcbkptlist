@@ -39,17 +39,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B6CB066E-474D-4130-BB5A-E689E3C3BB0E"
+            uuid = "50FCCB16-8464-458D-98EB-E05D29B27A15"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChitChat/ChatLogViewModel.swift"
+            filePath = "ChitChat/MainChatViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "ChatLogViewModel"
-            landmarkType = "3">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "fetchRecentMessage()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

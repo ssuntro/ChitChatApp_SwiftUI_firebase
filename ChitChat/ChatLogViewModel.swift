@@ -71,25 +71,34 @@ class ChatLogViewModel: ObservableObject {
     }
     
     func updateRecentMessage() {
-        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        [FirebaseManager.shared.firestore
-            .collection("recentMessages")
-            .document(fromId)
-            .collection("messages")
-            .document(recipientUid),
+        guard let host = FirebaseManager.shared.host else { return }
+//        B -> z
         FirebaseManager.shared.firestore
             .collection("recentMessages")
-            .document(recipientUid)
+            .document(host.uid)
             .collection("messages")
-            .document(fromId)].forEach { document in
-            document.setData(["imageUrl": recipientImageUrl,
+            .document(recipientUid)
+            .setData(["imageUrl": recipientImageUrl,
                               "email": recipientEmail,
                               "message": chatText,
                               "timestamp": Timestamp(),
                               "uid": recipientUid]) { [weak self] err in
                 self?.errorMessage = err?.localizedDescription ?? "no error"
             }
-        }
+        
+        //MainView of Z wil fetch
+        FirebaseManager.shared.firestore
+            .collection("recentMessages")
+            .document(recipientUid)
+            .collection("messages")
+            .document(host.uid)
+            .setData(["imageUrl": host.profileImageUrl,
+                      "email": host.email,
+                      "message": chatText,
+                      "timestamp": Timestamp(),
+                      "uid": host.uid]) { [weak self] err in
+                self?.errorMessage = err?.localizedDescription ?? "no error"
+            }
     }
     
     func persistChatLog() {

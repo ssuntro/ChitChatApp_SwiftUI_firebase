@@ -26,16 +26,41 @@ class MainChatViewModel: ObservableObject {
     
     func fetchAllData() {
         fetchHost()
-        recentMessages = [
-            RecentMessage(email: "x@x.com", message: "x ja", uid: "gDXrDU3Re5bP6n9X8WxNftFvPPp2"),
-            RecentMessage(email: "b@b.com", message: "two ja", uid: "5G5qNpugF4Yfko8bR2wlk4s3n7n2")] /*,
-                          RecentMessage(email: "three@a.com", message: "three ja"),
-                          RecentMessage(email: "four@a.com", message: "four ja")]*/
+        fetchRecentMessage()
+//        recentMessages = [
+//            RecentMessage(email: "x@x.com", message: "x ja", uid: "gDXrDU3Re5bP6n9X8WxNftFvPPp2"),
+//            RecentMessage(email: "b@b.com", message: "two ja", uid: "5G5qNpugF4Yfko8bR2wlk4s3n7n2")]
     }
-    
+    var recentMessagesListener: ListenerRegistration?
     func fetchRecentMessage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         recentMessages.removeAll()
-//        FirebaseManager.shared.firestore.collection(<#T##collectionPath: String##String#>)
+        
+        recentMessagesListener?.remove()
+        recentMessagesListener = FirebaseManager.shared.firestore
+            .collection("recentMessages")
+            .document(uid)
+            .collection("messages")
+            .order(by: "timestamp")
+            .addSnapshotListener { [weak self] snapshot, error in
+                if let _ = error  {
+                    self?.errorMessage = "fetch recentMessages"
+                    return
+                }
+                snapshot?.documentChanges.forEach({ change in
+                    let friendUid = change.document.documentID
+                    if let index = self?.recentMessages.firstIndex(where: { entry in
+                        entry.id == friendUid
+                    }) {
+                        self?.recentMessages.remove(at: index)
+                    }
+                    
+                    if let data = try? change.document.data(as: RecentMessage.self) {
+                        self?.recentMessages.insert(data, at: 0)
+//                        self?.recentMessages.append(data)
+                    }
+                })
+            }
     }
     
     
@@ -50,7 +75,9 @@ class MainChatViewModel: ObservableObject {
                         self?.errorMessage = "Failed to fetch current user: \(error)"
                         return
                     }
+//TODO: - centralise host var at FirebaseManager
                     self?.host = try? snapshot?.data(as: User.self)
+                    FirebaseManager.shared.host = try? snapshot?.data(as: User.self)
                     self?.errorMessage = "Success to fetch current user"
                 }
         } else {
