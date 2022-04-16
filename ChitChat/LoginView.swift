@@ -6,11 +6,7 @@
 //
 
 import SwiftUI
-//import FirebaseFirestore
-import Firebase
-import FirebaseFirestoreSwift
-//import FirebaseStorage
-//import FirebaseFirestore
+import Firebase //for AuthDataResult
 
 struct LoginView: View {
     let didSuccessLogin: (() -> ())

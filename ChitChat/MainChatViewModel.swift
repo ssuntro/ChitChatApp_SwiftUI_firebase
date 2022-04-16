@@ -7,8 +7,8 @@
 
 import Foundation
 import SwiftUI
-import FirebaseFirestoreSwift
-import FirebaseFirestore
+import FirebaseFirestoreSwift //for ListenerRegistration
+import FirebaseFirestore //for ListenerRegistration
 class MainChatViewModel: ObservableObject {
     @Published var isCurrentUserLoggedOut = false
     @Published var recentMessages = [RecentMessage]()
@@ -114,4 +114,21 @@ class MainChatViewModel: ObservableObject {
 struct User: Codable, Identifiable {
     @DocumentID var id: String?
     let uid, profileImageUrl, email: String
+}
+
+struct RecentMessage: Codable, Identifiable {
+    @DocumentID var id: String?
+
+    let imageUrl: String
+    //= "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=67773a9d419786091c958b2ad08eae5e"
+    let email: String
+    let message: String
+    let timestamp: Date// = "6 Days ago"
+    let uid: String
+
+    var timeAgo: String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: timestamp, relativeTo: Date())
+    }
 }

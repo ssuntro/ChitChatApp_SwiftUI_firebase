@@ -8,7 +8,7 @@
 import Foundation
 
 //TODO: - should be inside FirebaseManager.shared
-import FirebaseFirestoreSwift
+import FirebaseFirestoreSwift //for ...try? entry.data(as: User.self)
 
 class CreateNewMessageViewModel: ObservableObject {
     @Published var errorMessage = ""

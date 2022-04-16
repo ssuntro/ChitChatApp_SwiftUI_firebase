@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+import FirebaseFirestore //for ListenerRegistration
+import FirebaseFirestoreSwift //for ListenerRegistration
 
 class ChatLogViewModel: ObservableObject {
     @Published var errorMessage = "errorMessage"
