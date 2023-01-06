@@ -10,7 +10,7 @@ import FirebaseFirestore //for ListenerRegistration
 import FirebaseFirestoreSwift //for ListenerRegistration
 
 class ChatLogViewModel: ObservableObject {
-    @Published var errorMessage = "errorMessage"
+    @Published var errorMessage = "No error"
     @Published var logs = [Log]()
     @Published var chatText = ""
     @Published var count = 0
