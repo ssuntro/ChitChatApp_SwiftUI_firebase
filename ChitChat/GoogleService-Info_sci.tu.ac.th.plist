@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>685724778404-2lgllmi43ed8tlftqbgbst4bd0a9e1n2.apps.googleusercontent.com</string>
+	<string>304388365619-huae86u0tl3mm6ccafhd0from19bgmtp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.685724778404-2lgllmi43ed8tlftqbgbst4bd0a9e1n2</string>
+	<string>com.googleusercontent.apps.304388365619-huae86u0tl3mm6ccafhd0from19bgmtp</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDcYL4SqNSNAWPCwzfnhvXqzcdKLmpDPdA</string>
+	<string>AIzaSyAIIm82M0KDteT4RrfG4b0XBteZAlDyFE8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>685724778404</string>
+	<string>304388365619</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>Ann-Siroratt.ChitChat</string>
 	<key>PROJECT_ID</key>
-	<string>chitchat-ddde1</string>
+	<string>chitchat-40120</string>
 	<key>STORAGE_BUCKET</key>
-	<string>chitchat-ddde1.appspot.com</string>
+	<string>chitchat-40120.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:685724778404:ios:0be1dc198e083215e68b31</string>
+	<string>1:304388365619:ios:c10ebee6d20e0e80b1f246</string>
 </dict>
 </plist>
